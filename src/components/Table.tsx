@@ -75,13 +75,13 @@ export default function Table() {
             console.log(result)
             setIsDeleteModalOpen(false)
         } catch (error) {
-            // Handle error (optional)
+        
             console.error('Failed to delete post:', error);
         }
     };
 
 
-    if (isLoading) return <p className="flex items-center justify-center"><span>Loading </span><FaSpinner size={35} /></p>;
+    if (isLoading) return <p className="flex items-center justify-center h-[90vh] gap-4"><span>Loading </span><FaSpinner size={35} /></p>;
     if (isError) return <p>Error fetching data</p>;
 
     const getBgColor = (userId: number) => {
@@ -89,7 +89,7 @@ export default function Table() {
             "bg-red-200", "bg-green-200", "bg-blue-200", "bg-yellow-200", "bg-purple-200",
             "bg-pink-200", "bg-indigo-200", "bg-teal-200", "bg-gray-200", "bg-orange-200"
         ];
-        return colors[(userId - 1) % colors.length]; // Cycles through colors for user IDs 1-10
+        return colors[(userId - 1) % colors.length]; 
     };
     const handleCreatePost = () => {
         createPost.mutate(createFormData, {
@@ -131,7 +131,7 @@ export default function Table() {
         setSortConfig(newSortConfig);
     
         const sortedPosts = [...filteredData].sort((a, b) => {
-          if (!newSortConfig.key) return 0; // No sorting applied
+          if (!newSortConfig.key) return 0; 
     
           let valueA = a[newSortConfig.key];
           let valueB = b[newSortConfig.key];

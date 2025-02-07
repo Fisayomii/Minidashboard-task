@@ -263,7 +263,7 @@ export default function Table() {
                 </thead>
 
                 <tbody >
-                    {filteredData.map((post: { id: number; userId: number; title: string; body: string }) => (
+                    {filteredData?.map((post: { id: number; userId: number; title: string; body: string }) => (
                         <tr key={post.id} className="border capitalize">
                             <td className="border px-4">{post.id}</td>
                             <td className={`border px-4 `}>
